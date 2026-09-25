@@ -29,12 +29,12 @@ export default function ProjectsGrid({ projects }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search projects"
-          className="w-full rounded-lg border border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 py-2.5 pl-10 pr-4 text-[15px] text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-300 dark:focus:ring-neutral-700"
+          className="w-full rounded-lg border border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 py-2.5 pl-10 pr-4 text-[16px] text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-300 dark:focus:ring-neutral-700"
         />
       </div>
 
       {filtered.length === 0 ? (
-        <p className="mt-10 text-[15px] text-slate-500 dark:text-slate-400">
+        <p className="mt-10 text-[16px] text-slate-500 dark:text-slate-400">
           No projects match &ldquo;{query}&rdquo;.
         </p>
       ) : (

@@ -17,7 +17,7 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-4xl px-6 py-14">
         <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <div>
-            <p className="text-[12px] font-semibold tracking-[0.12em] text-slate-400 dark:text-slate-500">
+            <p className="text-[13px] font-semibold tracking-[0.12em] text-slate-400 dark:text-slate-500">
               NAVIGATE
             </p>
             <nav className="mt-4 flex flex-wrap gap-x-6 gap-y-3 max-w-xs">
@@ -25,7 +25,7 @@ export default function SiteFooter() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[15px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+                  className="text-[16px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -34,7 +34,7 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <p className="text-[12px] font-semibold tracking-[0.12em] text-slate-400 dark:text-slate-500">
+            <p className="text-[13px] font-semibold tracking-[0.12em] text-slate-400 dark:text-slate-500">
               CONNECT
             </p>
             <div className="mt-4 grid grid-cols-4 gap-2 sm:w-fit">
@@ -55,7 +55,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-slate-200 dark:border-neutral-800 pt-6">
-          <p className="text-[14px] text-slate-400 dark:text-slate-500">
+          <p className="text-[15px] text-slate-400 dark:text-slate-500">
             © {new Date().getFullYear()} Ayush Pawshe. All rights reserved.
           </p>
         </div>

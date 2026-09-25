@@ -19,9 +19,9 @@ export default function Stack() {
           return (
             <span
               key={key}
-              className="inline-flex items-center gap-2 rounded-full bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-3.5 py-1.5 text-[14px] font-medium"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-4 py-2 text-[15px] font-medium"
             >
-              <Icon size={15} color={color} />
+              <Icon size={16} color={color} />
               {label}
             </span>
           );

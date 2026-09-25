@@ -11,17 +11,17 @@ export default function ProjectCard({ project }) {
 
       <div className="bg-slate-50 dark:bg-neutral-900 px-5 py-5">
         <div className="flex items-center justify-between">
-          <span className="text-[13px] font-semibold text-emerald-600 dark:text-emerald-400">
+          <span className="text-[14px] font-semibold text-emerald-600 dark:text-emerald-400">
             {project.order}
           </span>
-          <span className="inline-flex items-center gap-1.5 text-[13px] text-slate-500 dark:text-slate-400">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          <span className="inline-flex items-center gap-1.5 text-[14px] text-slate-500 dark:text-slate-400">
+            <span className="h-2 w-2 rounded-full bg-emerald-500" />
             {project.status}
           </span>
         </div>
 
-        <h3 className="mt-2 text-[17px] font-bold">{project.title}</h3>
-        <p className="mt-1.5 text-[15px] leading-relaxed text-slate-500 dark:text-slate-400">
+        <h3 className="mt-2 text-[19px] sm:text-[20px] font-bold">{project.title}</h3>
+        <p className="mt-1.5 text-[16px] leading-relaxed text-slate-500 dark:text-slate-400">
           {project.description}
         </p>
 
@@ -32,7 +32,7 @@ export default function ProjectCard({ project }) {
               return (
                 <Icon
                   key={key}
-                  size={16}
+                  size={17}
                   className="text-slate-400 dark:text-slate-500"
                   aria-label={TECH[key].label}
                 />
@@ -41,7 +41,7 @@ export default function ProjectCard({ project }) {
           </div>
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex items-center gap-1 text-[14px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
+            className="inline-flex items-center gap-1 text-[15px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
           >
             Read more <span aria-hidden>→</span>
           </Link>

@@ -9,10 +9,10 @@ export default function Quote() {
           &ldquo;
         </span>
 
-        <p className="relative font-mono text-[15px] italic leading-relaxed text-slate-700 dark:text-slate-300 sm:text-[17px]">
+        <p className="relative font-mono text-[17px] italic leading-relaxed text-slate-700 dark:text-slate-300 sm:text-[19px]">
           &ldquo;As long as I live, there are infinite chances.&rdquo;
         </p>
-        <p className="relative mt-3 text-right font-mono text-[14px] italic text-slate-500 dark:text-slate-500">
+        <p className="relative mt-3 text-right font-mono text-[15px] italic text-slate-500 dark:text-slate-500">
           — Monkey D. Luffy, One Piece
         </p>
       </div>

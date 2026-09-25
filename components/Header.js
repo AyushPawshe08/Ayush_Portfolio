@@ -8,6 +8,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
+  // { label: "Certifications", href: "/#certifications" },
   { label: "Resume", href: "/resume" },
 ];
 
@@ -39,7 +40,7 @@ export default function Header() {
             height={28}
             className="rounded-md bg-black"
           />
-          <span className="text-[15px] font-semibold tracking-tight">
+          <span className="text-[17px] font-semibold tracking-tight">
             Ayush Pawshe
           </span>
         </Link>
@@ -49,7 +50,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[15px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              className="text-[16px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
             >
               {link.label}
             </Link>

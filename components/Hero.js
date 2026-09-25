@@ -24,10 +24,12 @@ export default function Hero() {
         className="mx-auto rounded-2xl bg-black"
       />
 
-      <p className="mt-6 text-[15px] text-slate-500 dark:text-slate-400">Hey, I&apos;m</p>
-      <h1 className="mt-1 text-2xl font-bold tracking-tight">Ayush Pawshe</h1>
+      <p className="mt-6 text-[16px] text-slate-500 dark:text-slate-400">
+        Hey, I&apos;m
+      </p>
+      <h1 className="mt-1 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Ayush Pawshe</h1>
 
-      <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-[15px] text-slate-500 dark:text-slate-400">
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-[16px] text-slate-600 dark:text-slate-300">
         <span>Software Developer</span>
         <span>·</span>
         <span>Backend &amp; AI</span>
@@ -38,17 +40,17 @@ export default function Hero() {
           aria-label="Copy email"
           className="text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
         >
-          {copied ? <Check size={14} /> : <Copy size={14} />}
+          {copied ? <Check size={15} /> : <Copy size={15} />}
         </button>
       </div>
 
-      <p className="mx-auto mt-5 max-w-md text-[15px] text-slate-500 dark:text-slate-400">
+      <p className="mx-auto mt-5 max-w-lg text-[16px] sm:text-[17px] leading-relaxed text-slate-600 dark:text-slate-400">
         Love to build reliable backend systems and AI-powered applications.
       </p>
 
       <div className="mt-6 flex justify-center">
-        <span className="inline-flex items-center gap-2 rounded-md border border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 px-3.5 py-1.5 text-[14px] font-medium">
-          <span className="h-2 w-2 rounded-full bg-emerald-500" />
+        <span className="inline-flex items-center gap-2 rounded-md border border-emerald-200 dark:border-emerald-900/30 bg-emerald-50/50 dark:bg-emerald-950/20 px-3.5 py-1.5 text-[14px] font-medium text-emerald-800 dark:text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.15)] dark:shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+          <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" />
           Available for work
         </span>
       </div>
