@@ -5,6 +5,10 @@ node_modules/
 .next/
 out/
 
+# Cloudflare / OpenNext build output
+.open-next/
+
+
 # Local environment files
 .env
 .env.local
