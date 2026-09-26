@@ -11,13 +11,30 @@ export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const project = getProjectBySlug(params.slug);
-  return { title: project ? `${project.title} — Ayush Pawshe` : "Project not found" };
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const project = getProjectBySlug(resolvedParams.slug);
+  if (!project) return { title: "Project Not Found" };
+
+  return {
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      title: `${project.title} | Ayush Pawshe`,
+      description: project.description,
+      images: project.cover?.image ? [{ url: project.cover.image }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Ayush Pawshe`,
+      description: project.description,
+    },
+  };
 }
 
-export default function ProjectDetailPage({ params }) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectDetailPage({ params }) {
+  const resolvedParams = await params;
+  const project = getProjectBySlug(resolvedParams.slug);
   if (!project) notFound();
 
   return (

@@ -17,7 +17,7 @@ export default function ProjectsPreview() {
         {projects.map((project) => (
           <div key={project.title}>
             <h3 className="text-[19px] sm:text-[20px] font-bold">{project.title}</h3>
-            <p className="mt-1.5 max-w-2xl text-[16px] leading-relaxed text-slate-500 dark:text-slate-400">
+            <p className="mt-1.5  text-[16px] leading-relaxed text-slate-500 dark:text-slate-400">
               {project.description}
             </p>
             <Link

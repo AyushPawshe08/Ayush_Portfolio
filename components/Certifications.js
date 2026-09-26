@@ -18,7 +18,7 @@ export default function Certifications() {
           rel="noreferrer"
           className="inline-flex items-center gap-1.5 text-[14px] font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
         >
-          View all on Notion
+          View all 
           <FaExternalLinkAlt size={12} />
         </a>
       </div>

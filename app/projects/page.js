@@ -3,7 +3,15 @@ import SectionHeading from "@/components/SectionHeading";
 import ProjectsGrid from "@/components/projects/ProjectsGrid";
 
 export const metadata = {
-  title: "Projects — Ayush Pawshe",
+  title: "Projects",
+  description:
+    "Explore engineering and AI/ML projects built by Ayush Pawshe, featuring RAG systems, multimodal AI, LLMs, and high-performance backend platforms.",
+  openGraph: {
+    title: "Projects | Ayush Pawshe",
+    description:
+      "Explore engineering and AI/ML projects built by Ayush Pawshe, featuring RAG systems, multimodal AI, LLMs, and high-performance backend platforms.",
+    url: "https://ayushpawshe.dev/projects",
+  },
 };
 
 export default function ProjectsPage() {

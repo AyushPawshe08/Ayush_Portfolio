@@ -7,7 +7,15 @@ const VIEW_URL = `https://drive.google.com/file/d/${DRIVE_FILE_ID}/view?usp=shar
 const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}`;
 
 export const metadata = {
-  title: "Resume — Ayush Pawshe",
+  title: "Resume",
+  description:
+    "View and download the resume of Ayush Pawshe, AI/ML Engineer and Backend Developer experienced in Python, FastAPI, Docker, and AI architectures.",
+  openGraph: {
+    title: "Resume | Ayush Pawshe",
+    description:
+      "View and download the resume of Ayush Pawshe, AI/ML Engineer and Backend Developer.",
+    url: "https://ayushpawshe.dev/resume",
+  },
 };
 
 export default function ResumePage() {
