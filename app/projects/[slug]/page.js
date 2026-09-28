@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft} from "lucide-react";
 import { projects, getProjectBySlug } from "@/lib/projects-data";
 import { TECH } from "@/lib/tech-icons";
+import TechIcon from "@/components/TechIcon";
 import ProjectCover from "@/components/projects/ProjectCover";
 import { FaArrowUpRightFromSquare , FaGithub } from "react-icons/fa6";
 
@@ -48,7 +49,25 @@ export default async function ProjectDetailPage({ params }) {
           Back to projects
         </Link>
 
-        <h1 className="mt-6 text-4xl font-bold tracking-tight">{project.title}</h1>
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <h1 className="text-4xl font-bold tracking-tight">{project.title}</h1>
+          <span
+            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[13px] font-medium ${
+              String(project.status).toLowerCase() === "local"
+                ? "bg-orange-50 text-orange-700 dark:bg-orange-950/30 dark:text-orange-400"
+                : "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400"
+            }`}
+          >
+            <span
+              className={`h-2 w-2 rounded-full ${
+                String(project.status).toLowerCase() === "local"
+                  ? "bg-orange-500"
+                  : "bg-emerald-500"
+              }`}
+            />
+            {project.status}
+          </span>
+        </div>
         <p className="mt-3 max-w-xl text-[16px] sm:text-[17px] leading-relaxed text-slate-500 dark:text-slate-400">
           {project.description}
         </p>
@@ -99,14 +118,15 @@ export default async function ProjectDetailPage({ params }) {
           <h2 className="text-2xl font-bold tracking-tight">Technologies & Tools</h2>
           <div className="mt-6 flex flex-wrap gap-2.5">
             {project.stack.map((key) => {
-              const { label, icon: Icon, color } = TECH[key];
+              const tech = TECH[key];
+              if (!tech) return null;
               return (
                 <span
                   key={key}
                   className="inline-flex items-center gap-2 rounded-full bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-4 py-2 text-[15px] font-medium"
                 >
-                  <Icon size={16} color={color} />
-                  {label}
+                  <TechIcon tech={tech} size={16} />
+                  {tech.label}
                 </span>
               );
             })}

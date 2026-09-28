@@ -1,12 +1,50 @@
 import SectionHeading from "@/components/SectionHeading";
 
+function Highlight({ children }) {
+  return (
+    <strong className="font-semibold text-slate-800 dark:text-slate-200">
+      {children}
+    </strong>
+  );
+}
+
 const points = [
-  "Software Developer focused on building reliable backend systems and AI-powered applications, with hands-on experience across Python, FastAPI, PostgreSQL, Redis, Celery, and Docker.",
-  "Built and shipped backend systems involving REST APIs, authentication, asynchronous processing, background task queues, concurrent workflows, database persistence, and AI/ML model integration.",
-  "Built CareerLens, a 21-endpoint FastAPI backend with JWT authentication, RBAC, refresh-token rotation, SQLAlchemy, PostgreSQL, and Redis-backed Celery workflows for parallel LLM processing.",
-  "Developed AI systems ranging from agentic research and RAG pipelines using LangChain, pgvector, HuggingFace, and Mistral AI to ML applications involving credit-risk prediction, SHAP explainability, and PyTorch-based computer vision.",
-  "Comfortable working across the stack with React, Next.js, AWS, Docker, CI/CD, and REST APIs, while primarily interested in backend engineering, AI integration, and practical software systems.",
-  "Enjoy taking ideas from a working prototype to a complete application—designing APIs, integrating AI/ML components, handling infrastructure, and making systems reliable enough to use.",
+  <>
+    <Highlight>AI/ML Engineer</Highlight> focused on building practical{" "}
+    <Highlight>AI-powered applications</Highlight>, intelligent systems, and
+    production-ready <Highlight>ML solutions</Highlight>.
+  </>,
+  <>
+    Built systems across <Highlight>Agentic AI</Highlight>,{" "}
+    <Highlight>RAG</Highlight>, <Highlight>Generative AI</Highlight>,{" "}
+    <Highlight>Computer Vision</Highlight>, and{" "}
+    <Highlight>Predictive ML</Highlight> — from multimodal MRI analysis to
+    explainable credit-risk prediction and autonomous research.
+  </>,
+  <>
+    Experienced in designing <Highlight>LLM workflows</Highlight>,{" "}
+    <Highlight>multi-agent systems</Highlight>, retrieval pipelines,
+    asynchronous processing, and backend APIs using{" "}
+    <Highlight>Python</Highlight>, <Highlight>FastAPI</Highlight>,{" "}
+    <Highlight>LangChain</Highlight>, <Highlight>LangGraph</Highlight>,{" "}
+    <Highlight>PostgreSQL</Highlight>, <Highlight>Redis</Highlight>, and{" "}
+    <Highlight>Docker</Highlight>.
+  </>,
+  <>
+    Built <Highlight>CareerLens</Highlight>, an AI-powered resume intelligence
+    platform, and <Highlight>QueryMind</Highlight>, a multi-agent research
+    engine with parallel search, retrieval, evaluation, and citation-backed
+    synthesis. Also built <Highlight>NeuroRAG</Highlight> for multimodal MRI
+    analysis and a <Highlight>Credit Risk Underwriting</Highlight> system with
+    explainable default prediction.
+  </>,
+  <>
+    Strong focus on turning AI/ML concepts into{" "}
+    <Highlight>complete, usable software</Highlight> — combining models, data,{" "}
+    <Highlight>backend engineering</Highlight>, and{" "}
+    <Highlight>deployment</Highlight> rather than treating ML as an isolated
+    experiment.
+  </>,
 ];
 
 export default function About() {
@@ -27,4 +65,3 @@ export default function About() {
     </section>
   );
 }
-

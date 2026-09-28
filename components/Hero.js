@@ -30,7 +30,7 @@ export default function Hero() {
       <h1 className="mt-1 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Ayush Pawshe</h1>
 
       <div className="mt-3 flex flex-wrap items-center justify-center gap-2 text-[16px] text-slate-600 dark:text-slate-300">
-        <span>Software Developer</span>
+        <span>AI/ML Engineer</span>
         <span>·</span>
         <span>Backend &amp; AI</span>
         <span>·</span>

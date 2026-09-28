@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TECH } from "@/lib/tech-icons";
+import TechIcon from "@/components/TechIcon";
 import ProjectCover from "@/components/projects/ProjectCover";
 
 export default function ProjectCard({ project }) {
@@ -14,8 +15,20 @@ export default function ProjectCard({ project }) {
           <span className="text-[14px] font-semibold text-emerald-600 dark:text-emerald-400">
             {project.order}
           </span>
-          <span className="inline-flex items-center gap-1.5 text-[14px] text-slate-500 dark:text-slate-400">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          <span
+            className={`inline-flex items-center gap-1.5 text-[14px] ${
+              String(project.status).toLowerCase() === "local"
+                ? "text-orange-600 dark:text-orange-400"
+                : "text-emerald-600 dark:text-emerald-400"
+            }`}
+          >
+            <span
+              className={`h-2 w-2 rounded-full ${
+                String(project.status).toLowerCase() === "local"
+                  ? "bg-orange-500"
+                  : "bg-emerald-500"
+              }`}
+            />
             {project.status}
           </span>
         </div>
@@ -28,13 +41,15 @@ export default function ProjectCard({ project }) {
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             {project.cardIcons.map((key) => {
-              const Icon = TECH[key].icon;
+              const tech = TECH[key];
+              if (!tech) return null;
+              const Icon = tech.icon;
               return (
                 <Icon
                   key={key}
                   size={17}
                   className="text-slate-400 dark:text-slate-500"
-                  aria-label={TECH[key].label}
+                  aria-label={tech.label}
                 />
               );
             })}

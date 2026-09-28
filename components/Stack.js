@@ -1,12 +1,6 @@
-import { TECH } from "@/lib/tech-icons";
+import { HOME_STACK, TECH } from "@/lib/tech-icons";
 import SectionHeading from "@/components/SectionHeading";
-
-const stackKeys = [
-  "python", "fastapi", "javascript", "typescript", "react", "nextjs",
-  "nodejs", "express", "postgresql", "mongodb", "mysql", "sqlite",
-  "sqlalchemy", "redis", "celery", "docker", "awsEc2", "awsS3",
-  "git", "githubActions", "tailwind", "jwt", "rest", "linux",
-];
+import TechIcon from "@/components/TechIcon";
 
 export default function Stack() {
   return (
@@ -14,15 +8,15 @@ export default function Stack() {
       <SectionHeading>Stack</SectionHeading>
 
       <div className="mt-7 flex flex-wrap gap-2.5">
-        {stackKeys.map((key) => {
-          const { label, icon: Icon, color } = TECH[key];
+        {HOME_STACK.map((key) => {
+          const tech = TECH[key];
           return (
             <span
               key={key}
               className="inline-flex items-center gap-2 rounded-full bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-4 py-2 text-[15px] font-medium"
             >
-              <Icon size={16} color={color} />
-              {label}
+              <TechIcon tech={tech} size={16} />
+              {tech.label}
             </span>
           );
         })}

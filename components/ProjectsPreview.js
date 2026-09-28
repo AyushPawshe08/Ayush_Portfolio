@@ -2,11 +2,14 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { projects as allProjects } from "@/lib/projects-data";
 
-const projects = allProjects.slice(0, 3).map((p) => ({
-  title: p.title,
-  description: p.description,
-  href: `/projects/${p.slug}`,
-}));
+const projects = [...allProjects]
+  .sort((a, b) => Number(a.order) - Number(b.order))
+  .slice(0, 3)
+  .map((p) => ({
+    title: p.title,
+    description: p.description,
+    href: `/projects/${p.slug}`,
+  }));
 
 export default function ProjectsPreview() {
   return (
