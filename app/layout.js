@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import OnekoCat from "@/components/OnekoCat";
 import SiteFooter from "@/components/SiteFooter";
 
 const inter = Inter({
@@ -130,6 +131,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} font-sans antialiased bg-white text-slate-900 dark:bg-neutral-950 dark:text-slate-100 transition-colors`}
       >
+        <OnekoCat />
         <Header />
         {children}
         <SiteFooter />
