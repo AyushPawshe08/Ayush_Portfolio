@@ -1,5 +1,4 @@
 import Link from "next/link";
-import SectionHeading from "@/components/SectionHeading";
 import { projects as allProjects } from "@/lib/projects-data";
 
 const projects = [...allProjects]
@@ -13,8 +12,15 @@ const projects = [...allProjects]
 
 export default function ProjectsPreview() {
   return (
-    <section className="mx-auto max-w-4xl border-t border-slate-200 dark:border-neutral-800 px-6 py-14">
-      <SectionHeading>Projects</SectionHeading>
+    <section className="mx-auto max-w-4xl px-6 py-14">
+      <div>
+        <p className="text-[12px] font-medium uppercase tracking-widest text-slate-400 dark:text-slate-500">
+          Featured
+        </p>
+        <h2 className="mt-1 text-[28px] font-bold tracking-tight text-slate-900 dark:text-white">
+          Projects
+        </h2>
+      </div>
 
       <div className="mt-8 space-y-9">
         {projects.map((project) => (
@@ -36,7 +42,7 @@ export default function ProjectsPreview() {
       <div className="mt-10 flex justify-center">
         <Link
           href="/projects"
-          className="rounded-md bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-4 py-2 text-[15px] font-semibold hover:bg-slate-100 dark:hover:bg-neutral-800 transition-colors"
+          className="rounded-md bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-4 py-2 text-[13.5px] font-medium hover:bg-slate-100 dark:hover:bg-neutral-800 transition-colors"
         >
           Show all projects
         </Link>

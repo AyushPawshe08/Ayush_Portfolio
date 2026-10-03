@@ -54,7 +54,7 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-slate-200 dark:border-neutral-800 pt-6">
+        <div className="mt-12 pt-6">
           <p className="text-xs text-slate-400 dark:text-slate-500">
             © {new Date().getFullYear()} Ayush Pawshe. All rights reserved.
           </p>

@@ -49,7 +49,7 @@ const points = [
 
 export default function About() {
   return (
-    <section className="mx-auto max-w-4xl border-t border-slate-200 dark:border-neutral-800 px-6 py-14">
+    <section className="mx-auto max-w-4xl px-6 py-14">
       <SectionHeading>About</SectionHeading>
 
       <ul className="mt-6 space-y-4 list-disc list-inside">

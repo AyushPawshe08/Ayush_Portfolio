@@ -1,7 +1,6 @@
 export default function SectionHeading({ children }) {
   return (
-    <h2 className="flex items-center gap-2.5 text-[17px] font-bold tracking-tight">
-      <span className="h-2.5 w-2.5 rounded-[2px] bg-emerald-500" />
+    <h2 className="text-[20px] font-bold tracking-tight text-slate-900 dark:text-white">
       {children}
     </h2>
   );

@@ -4,7 +4,7 @@ import TechIcon from "@/components/TechIcon";
 
 export default function Stack() {
   return (
-    <section className="mx-auto max-w-4xl border-t border-slate-200 dark:border-neutral-800 px-6 py-14">
+    <section className="mx-auto max-w-4xl px-6 py-14">
       <SectionHeading>Stack</SectionHeading>
 
       <div className="mt-7 flex flex-wrap gap-2.5">

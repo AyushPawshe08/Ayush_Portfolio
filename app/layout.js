@@ -1,11 +1,12 @@
-import { Inter } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import OnekoCat from "@/components/OnekoCat";
 import SiteFooter from "@/components/SiteFooter";
 
-const inter = Inter({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
 });
@@ -129,12 +130,21 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${inter.variable} font-sans antialiased bg-white text-slate-900 dark:bg-neutral-950 dark:text-slate-100 transition-colors`}
+        className={`${instrumentSans.variable} font-sans antialiased bg-white text-slate-900 dark:bg-neutral-950 dark:text-slate-100 transition-colors`}
       >
         <OnekoCat />
         <Header />
         {children}
         <SiteFooter />
+
+        {/* Fixed bottom blur strip */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none fixed inset-x-0 bottom-0 z-40 h-11 sm:h-14 select-none overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent dark:from-neutral-950 dark:via-neutral-950/80 dark:to-transparent" />
+          <div className="absolute inset-0 backdrop-blur-[8px] [mask-image:linear-gradient(to_top,black_25%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_top,black_25%,transparent_100%)]" />
+        </div>
       </body>
     </html>
   );

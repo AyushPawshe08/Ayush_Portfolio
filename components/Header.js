@@ -26,7 +26,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur">
+    <header className="sticky top-0 z-50 bg-white/70 dark:bg-neutral-950/70 backdrop-blur-md">
       <div
         className="h-[2px] bg-slate-900 dark:bg-slate-100 transition-[width] duration-150"
         style={{ width: `${progress}%` }}
