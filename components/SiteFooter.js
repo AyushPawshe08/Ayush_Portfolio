@@ -25,7 +25,7 @@ export default function SiteFooter() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-[16px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+                  className="text-[14px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -55,7 +55,7 @@ export default function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-slate-200 dark:border-neutral-800 pt-6">
-          <p className="text-[15px] text-slate-400 dark:text-slate-500">
+          <p className="text-xs text-slate-400 dark:text-slate-500">
             © {new Date().getFullYear()} Ayush Pawshe. All rights reserved.
           </p>
         </div>

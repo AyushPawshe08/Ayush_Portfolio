@@ -56,7 +56,7 @@ export default function About() {
         {points.map((point, i) => (
           <li
             key={i}
-            className="text-[16px] sm:text-[17px] leading-relaxed text-slate-600 dark:text-slate-400"
+            className="text-[14.5px] leading-relaxed text-slate-600 dark:text-slate-400"
           >
             {point}
           </li>

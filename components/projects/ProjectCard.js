@@ -33,8 +33,8 @@ export default function ProjectCard({ project }) {
           </span>
         </div>
 
-        <h3 className="mt-2 text-[19px] sm:text-[20px] font-bold">{project.title}</h3>
-        <p className="mt-1.5 text-[16px] leading-relaxed text-slate-500 dark:text-slate-400">
+        <h3 className="mt-2 text-[17px] font-semibold">{project.title}</h3>
+        <p className="mt-1.5 text-[14.5px] leading-relaxed text-slate-500 dark:text-slate-400">
           {project.description}
         </p>
 
@@ -56,7 +56,7 @@ export default function ProjectCard({ project }) {
           </div>
           <Link
             href={`/projects/${project.slug}`}
-            className="inline-flex items-center gap-1 text-[15px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
+            className="inline-flex items-center gap-1 text-[13.5px] font-medium text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors"
           >
             Read more <span aria-hidden>→</span>
           </Link>

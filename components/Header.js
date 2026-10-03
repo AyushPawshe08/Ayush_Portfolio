@@ -26,7 +26,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur border-b border-slate-200 dark:border-neutral-800">
+    <header className="sticky top-0 z-50 bg-white/90 dark:bg-neutral-950/90 backdrop-blur">
       <div
         className="h-[2px] bg-slate-900 dark:bg-slate-100 transition-[width] duration-150"
         style={{ width: `${progress}%` }}
@@ -40,7 +40,7 @@ export default function Header() {
             height={28}
             className="rounded-md bg-black"
           />
-          <span className="text-[17px] font-semibold tracking-tight">
+          <span className="text-[15px] font-semibold tracking-tight">
             Ayush Pawshe
           </span>
         </Link>
@@ -50,7 +50,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-[16px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              className="text-[14px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
             >
               {link.label}
             </Link>

@@ -13,7 +13,7 @@ export default function Stack() {
           return (
             <span
               key={key}
-              className="inline-flex items-center gap-2 rounded-full bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-4 py-2 text-[15px] font-medium"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-4 py-2 text-[13px] font-medium"
             >
               <TechIcon tech={tech} size={16} />
               {tech.label}
