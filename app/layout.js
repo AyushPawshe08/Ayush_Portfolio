@@ -18,7 +18,7 @@ export const metadata = {
 
   // ── Tab title ──────────────────────────────────────────────────────────────
   title: {
-    default: "Ayush | AI ML Engineer",
+    default: "Ayush Pawshe - AI ML Engineer",
     template: "%s | Ayush Pawshe",
   },
 
