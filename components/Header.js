@@ -40,7 +40,7 @@ export default function Header() {
             height={28}
             className="rounded-md bg-black"
           />
-          <span className="text-[15px] font-semibold tracking-tight">
+          <span className="hidden text-[15px] font-semibold tracking-tight sm:inline">
             Ayush Pawshe
           </span>
         </Link>
