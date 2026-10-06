@@ -31,9 +31,9 @@ export default function ProjectsPreview() {
             </p>
             <Link
               href={project.href}
-              className="mt-2 inline-flex items-center gap-1 text-[13.5px] font-medium text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
+              className="group mt-3 inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-neutral-600 hover:bg-slate-50 dark:hover:bg-neutral-700/60 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm"
             >
-              Read more <span aria-hidden>→</span>
+              View project <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </Link>
           </div>
         ))}

@@ -1,4 +1,5 @@
 export default function TechIcon({ tech, size = 16, className = "" }) {
+  if (!tech || !tech.icon) return null;
   const Icon = tech.icon;
   const invert = tech.invertOnDark
     ? "dark:invert dark:brightness-200"

@@ -118,7 +118,7 @@ export default async function ProjectDetailPage({ params }) {
           <h2 className="text-2xl font-bold tracking-tight">Technologies & Tools</h2>
           <div className="mt-6 flex flex-wrap gap-2.5">
             {project.stack.map((key) => {
-              const tech = TECH[key];
+              const tech = TECH[key] || TECH[key.toLowerCase()] || TECH[key.toUpperCase()];
               if (!tech) return null;
               return (
                 <span
