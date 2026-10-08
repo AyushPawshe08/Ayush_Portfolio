@@ -4,13 +4,25 @@ import ProjectsGrid from "@/components/projects/ProjectsGrid";
 
 export const metadata = {
   title: "Projects",
+  alternates: {
+    canonical: "/projects",
+  },
   description:
     "Explore engineering and AI/ML projects built by Ayush Pawshe, featuring RAG systems, multimodal AI, LLMs, and high-performance backend platforms.",
   openGraph: {
-    title: "Projects - Explore AI/ML & Engineering Projects ",
+    title: "Projects - Explore AI/ML & Engineering Projects",
     description:
       "Explore engineering and AI/ML projects built by Ayush Pawshe, featuring RAG systems, multimodal AI, LLMs, and high-performance backend platforms.",
-    url: "https://ayushpawshe.dev/projects",
+    url: "https://ayushpawshe.vercel.app/projects",
+  },
+  twitter: {
+    card: "summary",
+    site: "@ayushpawshe",
+    creator: "@ayushpawshe",
+    title: "Projects - Explore AI/ML & Engineering Projects",
+    description:
+      "Explore engineering and AI/ML projects built by Ayush Pawshe, featuring RAG systems, multimodal AI, LLMs, and high-performance backend platforms.",
+    images: ["/avatar.png"],
   },
 };
 

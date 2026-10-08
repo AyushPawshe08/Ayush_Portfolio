@@ -1,6 +1,6 @@
 import { projects } from "@/lib/projects-data";
 
-const BASE_URL = "https://ayushpawshe.dev";
+const BASE_URL = "https://ayushpawshe.vercel.app";
 
 export default function sitemap() {
   const currentDate = new Date();

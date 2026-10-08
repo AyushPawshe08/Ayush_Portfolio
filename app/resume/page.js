@@ -8,13 +8,25 @@ const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${DRIVE_FIL
 
 export const metadata = {
   title: "Resume",
+  alternates: {
+    canonical: "/resume",
+  },
   description:
     "View and download the resume of Ayush Pawshe, AI/ML Engineer and Backend Developer experienced in Python, FastAPI, Docker, and AI architectures.",
   openGraph: {
     title: "Resume - Professional CV",
     description:
       "View and download the resume of Ayush Pawshe, AI/ML Engineer and Backend Developer.",
-    url: "https://ayushpawshe.dev/resume",
+    url: "https://ayushpawshe.vercel.app/resume",
+  },
+  twitter: {
+    card: "summary",
+    site: "@ayushpawshe",
+    creator: "@ayushpawshe",
+    title: "Resume - Professional CV",
+    description:
+      "View and download the resume of Ayush Pawshe, AI/ML Engineer and Backend Developer.",
+    images: ["/avatar.png"],
   },
 };
 

@@ -11,7 +11,7 @@ const instrumentSans = Instrument_Sans({
   display: "swap",
 });
 
-const BASE_URL = "https://ayushpawshe.dev";
+const BASE_URL = "https://ayushpawshe.vercel.app";
 
 export const metadata = {
   metadataBase: new URL(BASE_URL),
