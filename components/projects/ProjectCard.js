@@ -11,27 +11,13 @@ export default function ProjectCard({ project }) {
       </div>
 
       <div className="bg-slate-50 dark:bg-neutral-900 px-5 py-5">
-        <div className="flex items-center justify-between">
-          <span className="text-[14px] font-semibold text-emerald-600 dark:text-emerald-400">
-            {project.order}
-          </span>
-          <span
-            className={`inline-flex items-center gap-1.5 text-[14px] ${
-              String(project.status).toLowerCase() === "local"
-                ? "text-orange-600 dark:text-orange-400"
-                : "text-emerald-600 dark:text-emerald-400"
-            }`}
-          >
-            <span
-              className={`h-2 w-2 rounded-full ${
-                String(project.status).toLowerCase() === "local"
-                  ? "bg-orange-500"
-                  : "bg-emerald-500"
-              }`}
-            />
-            {project.status}
-          </span>
-        </div>
+        {project.one_word_desc && (
+          <div className="flex items-center">
+            <span className="rounded border border-slate-200 dark:border-neutral-800 px-2.5 py-0.5 text-[11px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+              {project.one_word_desc}
+            </span>
+          </div>
+        )}
 
         <h3 className="mt-2 text-[17px] font-semibold">{project.title}</h3>
         <p className="mt-1.5 text-[14.5px] leading-relaxed text-slate-500 dark:text-slate-400">
@@ -40,7 +26,7 @@ export default function ProjectCard({ project }) {
 
         <div className="mt-4 flex items-center justify-between gap-3">
           <div className="flex flex-wrap items-center gap-2.5">
-            {project.cardIcons.map((key) => {
+            {project.cardIcons?.map((key) => {
               const tech = TECH[key] || TECH[key.toLowerCase()] || TECH[key.toUpperCase()];
               if (!tech) return null;
               return (

@@ -51,22 +51,11 @@ export default async function ProjectDetailPage({ params }) {
 
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <h1 className="text-4xl font-bold tracking-tight">{project.title}</h1>
-          <span
-            className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[13px] font-medium ${
-              String(project.status).toLowerCase() === "local"
-                ? "bg-orange-50 text-orange-700 dark:bg-orange-950/30 dark:text-orange-400"
-                : "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400"
-            }`}
-          >
-            <span
-              className={`h-2 w-2 rounded-full ${
-                String(project.status).toLowerCase() === "local"
-                  ? "bg-orange-500"
-                  : "bg-emerald-500"
-              }`}
-            />
-            {project.status}
-          </span>
+          {project.one_word_desc && (
+            <span className="rounded-full border border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 px-3 py-1 text-[13px] font-medium text-slate-600 dark:text-slate-400">
+              {project.one_word_desc}
+            </span>
+          )}
         </div>
         <p className="mt-3 max-w-xl text-[16px] sm:text-[17px] leading-relaxed text-slate-500 dark:text-slate-400">
           {project.description}

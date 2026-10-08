@@ -1,46 +1,107 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
-import ProjectCard from "@/components/projects/ProjectCard";
+import ProjectRow from "@/components/projects/ProjectRow";
+
+// ─── Category filter pill ───────────────────────────────────────────────────
+function FilterPill({ label, count, active, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[13px] font-medium transition-all ${
+        active
+          ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
+          : "border border-slate-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-neutral-700 hover:bg-slate-50 dark:hover:bg-neutral-800"
+      }`}
+    >
+      {label}
+      <span
+        className={`rounded-full px-1.5 py-0.5 text-[11px] font-semibold leading-none ${
+          active
+            ? "bg-white/20 dark:bg-slate-900/20"
+            : "bg-slate-100 dark:bg-neutral-800 text-slate-500 dark:text-slate-400"
+        }`}
+      >
+        {count}
+      </span>
+    </button>
+  );
+}
+
+// ─── Main grid (filtered row list) ─────────────────────────────────────────
+const CATEGORY_ORDER = [
+  "All Projects",
+  "Full Stack",
+  "AI",
+  "Frontend",
+  "Backend",
+  "Machine Learning",
+];
 
 export default function ProjectsGrid({ projects }) {
-  const [query, setQuery] = useState("");
+  const [activeCategory, setActiveCategory] = useState("All Projects");
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return projects;
-    return projects.filter(
-      (p) =>
-        p.title.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q)
+  // Build category counts
+  const categoryCounts = useMemo(() => {
+    const counts = { "All Projects": projects.length };
+    for (const p of projects) {
+      if (p.category) {
+        counts[p.category] = (counts[p.category] || 0) + 1;
+      }
+    }
+    return counts;
+  }, [projects]);
+
+  // Build pill list (only categories that exist + have count)
+  const pills = useMemo(() => {
+    return CATEGORY_ORDER.filter(
+      (cat) => cat === "All Projects" || (categoryCounts[cat] && categoryCounts[cat] > 0)
     );
-  }, [query, projects]);
+  }, [categoryCounts]);
+
+  // Filter projects
+  const filtered = useMemo(() => {
+    const sorted = [...projects].sort(
+      (a, b) => Number(a.order) - Number(b.order)
+    );
+    if (activeCategory === "All Projects") return sorted;
+    return sorted.filter((p) => p.category === activeCategory);
+  }, [projects, activeCategory]);
 
   return (
     <>
-      <div className="relative mt-8 max-w-md">
-        <Search
-          size={16}
-          className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
-        />
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search projects"
-          className="w-full rounded-lg border border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 py-2.5 pl-10 pr-4 text-[14px] text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-300 dark:focus:ring-neutral-700"
-        />
+      {/* ── Filter pills ── */}
+      <div className="mt-8 flex flex-wrap gap-2">
+        {pills.map((cat) => (
+          <FilterPill
+            key={cat}
+            label={cat}
+            count={categoryCounts[cat] ?? 0}
+            active={activeCategory === cat}
+            onClick={() => setActiveCategory(cat)}
+          />
+        ))}
       </div>
 
+      {/* ── Result count ── */}
+      <div className="mt-6 flex items-baseline justify-between border-b border-slate-100 dark:border-neutral-800 pb-4">
+        <h2 className="text-[15px] font-semibold tracking-tight">
+          Selected Projects
+        </h2>
+        <span className="text-[13px] text-slate-400 dark:text-slate-500">
+          Showing {filtered.length} project{filtered.length !== 1 ? "s" : ""}
+        </span>
+      </div>
+
+      {/* ── Row list ── */}
       {filtered.length === 0 ? (
         <p className="mt-10 text-[14.5px] text-slate-500 dark:text-slate-400">
-          No projects match &ldquo;{query}&rdquo;.
+          No projects in this category yet.
         </p>
       ) : (
-        <div className="mt-10 grid gap-8 sm:grid-cols-2">
+        <div className="divide-y-0">
           {filtered.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectRow key={project.slug} project={project} />
           ))}
         </div>
       )}

@@ -1,14 +1,10 @@
 import Link from "next/link";
 import { projects as allProjects } from "@/lib/projects-data";
+import ProjectRow from "@/components/projects/ProjectRow";
 
-const projects = [...allProjects]
+const featuredProjects = [...allProjects]
   .sort((a, b) => Number(a.order) - Number(b.order))
-  .slice(0, 3)
-  .map((p) => ({
-    title: p.title,
-    description: p.description,
-    href: `/projects/${p.slug}`,
-  }));
+  .slice(0, 3);
 
 export default function ProjectsPreview() {
   return (
@@ -22,29 +18,24 @@ export default function ProjectsPreview() {
         </h2>
       </div>
 
-      <div className="mt-8 space-y-9">
-        {projects.map((project) => (
-          <div key={project.title}>
-            <h3 className="text-[17px] font-semibold">{project.title}</h3>
-            <p className="mt-1.5  text-[14.5px] leading-relaxed text-slate-500 dark:text-slate-400">
-              {project.description}
-            </p>
-            <Link
-              href={project.href}
-              className="group mt-3 inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-neutral-600 hover:bg-slate-50 dark:hover:bg-neutral-700/60 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm"
-            >
-              View project <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </Link>
-          </div>
+      <div className="mt-6 divide-y-0">
+        {featuredProjects.map((project) => (
+          <ProjectRow key={project.slug} project={project} />
         ))}
       </div>
 
       <div className="mt-10 flex justify-center">
         <Link
           href="/projects"
-          className="rounded-md bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-4 py-2 text-[13.5px] font-medium hover:bg-slate-100 dark:hover:bg-neutral-800 transition-colors"
+          className="group inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-neutral-800 bg-slate-50 dark:bg-neutral-900 px-5 py-2.5 text-[13.5px] font-medium text-slate-700 dark:text-slate-300 hover:border-slate-300 dark:hover:border-neutral-700 hover:bg-slate-100 dark:hover:bg-neutral-800 transition-all shadow-sm"
         >
-          Show all projects
+          Show all projects{" "}
+          <span
+            aria-hidden
+            className="transition-transform group-hover:translate-x-0.5"
+          >
+            →
+          </span>
         </Link>
       </div>
     </section>
