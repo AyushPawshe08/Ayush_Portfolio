@@ -3,7 +3,7 @@ import SectionHeading from "@/components/SectionHeading";
 import ProjectsGrid from "@/components/projects/ProjectsGrid";
 
 export const metadata = {
-  title: "Projects",
+  title: "Projects - Explore AI/ML & Engineering Projects",
   alternates: {
     canonical: "/projects",
   },

@@ -7,7 +7,7 @@ const VIEW_URL = `https://drive.google.com/file/d/${DRIVE_FILE_ID}/view?usp=shar
 const DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${DRIVE_FILE_ID}`;
 
 export const metadata = {
-  title: "Resume",
+  title: "Resume - Professional CV",
   alternates: {
     canonical: "/resume",
   },
