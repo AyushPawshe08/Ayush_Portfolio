@@ -81,7 +81,7 @@ export const metadata = {
     card: "summary",
     site: "@ayushpawshe",
     creator: "@ayushpawshe",
-    title: "Ayush | AI ML Engineer",
+    title: "Ayush - AI ML Engineer",
     description:
       "AI/ML Engineer & Backend Developer building intelligent, reliable systems.",
     images: ["/avatar.png"],

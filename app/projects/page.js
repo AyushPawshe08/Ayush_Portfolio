@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Explore engineering and AI/ML projects built by Ayush Pawshe, featuring RAG systems, multimodal AI, LLMs, and high-performance backend platforms.",
   openGraph: {
-    title: "Projects | Ayush Pawshe",
+    title: "Projects - Explore AI/ML & Engineering Projects ",
     description:
       "Explore engineering and AI/ML projects built by Ayush Pawshe, featuring RAG systems, multimodal AI, LLMs, and high-performance backend platforms.",
     url: "https://ayushpawshe.dev/projects",
