@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaGithub } from "react-icons/fa6";
 import { Globe } from "lucide-react";
+import { IoPlayCircleSharp } from "react-icons/io5";
 import { TECH } from "@/lib/tech-icons";
 import TechIcon from "@/components/TechIcon";
 
@@ -72,6 +73,17 @@ export default function ProjectRow({ project }) {
 
         {/* Action buttons */}
         <div className="mt-4 flex flex-wrap items-center gap-3">
+          {project.demoUrl && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-neutral-700 bg-slate-100 dark:bg-neutral-800 px-4 py-1.5 text-[13px] font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-neutral-700 transition-colors"
+            >
+              <IoPlayCircleSharp size={16} />
+              Demo
+            </a>
+          )}
           <Link
             href={`/projects/${project.slug}`}
             className="group/btn inline-flex items-center gap-1.5 rounded-full bg-slate-900 dark:bg-slate-100 px-4 py-1.5 text-[13px] font-medium text-white dark:text-slate-900 hover:bg-slate-700 dark:hover:bg-slate-200 transition-colors"

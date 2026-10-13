@@ -2,6 +2,7 @@ import Link from "next/link";
 import { TECH } from "@/lib/tech-icons";
 import TechIcon from "@/components/TechIcon";
 import ProjectCover from "@/components/projects/ProjectCover";
+import { IoPlayCircleSharp } from "react-icons/io5";
 
 export default function ProjectCard({ project }) {
   return (
@@ -40,12 +41,25 @@ export default function ProjectCard({ project }) {
               );
             })}
           </div>
-          <Link
-            href={`/projects/${project.slug}`}
-            className="group shrink-0 inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-neutral-600 hover:bg-slate-50 dark:hover:bg-neutral-700/60 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm"
-          >
-            View project <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-          </Link>
+          <div className="flex items-center gap-2">
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-neutral-700 bg-slate-100 dark:bg-neutral-800 px-3.5 py-1.5 text-[13px] font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-neutral-700 transition-all shadow-sm"
+              >
+                <IoPlayCircleSharp size={16} />
+                Demo
+              </a>
+            )}
+            <Link
+              href={`/projects/${project.slug}`}
+              className="group shrink-0 inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-3.5 py-1.5 text-[13px] font-medium text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-neutral-600 hover:bg-slate-50 dark:hover:bg-neutral-700/60 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm"
+            >
+              View project <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </Link>
+          </div>
         </div>
       </div>
     </article>

@@ -6,6 +6,7 @@ import { TECH } from "@/lib/tech-icons";
 import TechIcon from "@/components/TechIcon";
 import ProjectCover from "@/components/projects/ProjectCover";
 import { FaArrowUpRightFromSquare , FaGithub } from "react-icons/fa6";
+import { IoPlayCircleSharp } from "react-icons/io5";
 
 
 export function generateStaticParams() {
@@ -66,24 +67,39 @@ export default async function ProjectDetailPage({ params }) {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-5 py-2.5 text-[16px] font-semibold hover:bg-slate-100 dark:hover:bg-neutral-800 transition-colors"
-          >
-            <FaArrowUpRightFromSquare size={16} />
-            Live Demo
-          </a>
-          <a
-            href={project.sourceUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-200 dark:border-neutral-800 px-5 py-2.5 text-[16px] font-semibold hover:bg-slate-50 dark:hover:bg-neutral-900 transition-colors"
-          >
-            <FaGithub size={16} />
-            Source Code
-          </a>
+          {project.demoUrl && (
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-slate-200 dark:bg-neutral-800 border border-slate-300 dark:border-neutral-700 px-5 py-2.5 text-[16px] font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-neutral-700 transition-colors"
+            >
+              <IoPlayCircleSharp size={16} />
+              Demo
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-slate-50 dark:bg-neutral-900 border border-slate-200 dark:border-neutral-800 px-5 py-2.5 text-[16px] font-semibold hover:bg-slate-100 dark:hover:bg-neutral-800 transition-colors"
+            >
+              <FaArrowUpRightFromSquare size={16} />
+              Live Demo
+            </a>
+          )}
+          {project.sourceUrl && (
+            <a
+              href={project.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 dark:border-neutral-800 px-5 py-2.5 text-[16px] font-semibold hover:bg-slate-50 dark:hover:bg-neutral-900 transition-colors"
+            >
+              <FaGithub size={16} />
+              Source Code
+            </a>
+          )}
         </div>
 
         <div className="mt-10 border-t border-slate-200 dark:border-neutral-800 pt-10">
