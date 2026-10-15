@@ -58,7 +58,7 @@ export default async function ProjectDetailPage({ params }) {
             </span>
           )}
         </div>
-        <p className="mt-3 max-w-xl text-[16px] sm:text-[17px] leading-relaxed text-slate-500 dark:text-slate-400">
+        <p className="mt-3 text-[16px] sm:text-[17px] leading-relaxed text-slate-500 dark:text-slate-400">
           {project.description}
         </p>
 
@@ -121,7 +121,7 @@ export default async function ProjectDetailPage({ params }) {
 
         <div className="mt-10 border-t border-slate-200 dark:border-neutral-800 pt-10">
           <h2 className="text-2xl font-bold tracking-tight">Technologies & Tools</h2>
-          <div className="mt-6 flex flex-wrap gap-2.5">
+          <div className="mt-6 flex flex-wrap gap-2.5 ">
             {project.stack.map((key) => {
               const tech = TECH[key] || TECH[key.toLowerCase()] || TECH[key.toUpperCase()];
               if (!tech) return null;
