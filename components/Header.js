@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
@@ -13,6 +14,7 @@ const navLinks = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -46,15 +48,26 @@ export default function Header() {
         </Link>
 
         <nav className="flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-[14px] text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive =
+              pathname === link.href ||
+              (link.href === "/projects" && pathname.startsWith("/projects/"));
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`group relative py-1 text-[14px] transition-colors ${
+                  isActive
+                    ? "text-slate-900 dark:text-white"
+                    : "text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+                }`}
+              >
+                {link.label}
+                <span className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-current opacity-40 transition-transform duration-200 group-hover:scale-x-100" />
+              </Link>
+            );
+          })}
           <ThemeToggle />
         </nav>
       </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft} from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { projects, getProjectBySlug } from "@/lib/projects-data";
 import { TECH } from "@/lib/tech-icons";
 import TechIcon from "@/components/TechIcon";
@@ -38,6 +38,11 @@ export default async function ProjectDetailPage({ params }) {
   const resolvedParams = await params;
   const project = getProjectBySlug(resolvedParams.slug);
   if (!project) notFound();
+
+  const orderedProjects = [...projects].sort((a, b) => a.order.localeCompare(b.order));
+  const projectIndex = orderedProjects.findIndex((item) => item.slug === project.slug);
+  const previousProject = orderedProjects[(projectIndex - 1 + orderedProjects.length) % orderedProjects.length];
+  const nextProject = orderedProjects[(projectIndex + 1) % orderedProjects.length];
 
   return (
     <main>
@@ -137,6 +142,29 @@ export default async function ProjectDetailPage({ params }) {
             })}
           </div>
         </div>
+
+        <nav aria-label="Project navigation" className="mt-10 grid grid-cols-2 gap-4 border-t border-slate-200 pt-6 dark:border-neutral-800">
+          <Link
+            href={`/projects/${previousProject.slug}`}
+            className="group flex min-w-0 items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 transition-colors hover:bg-slate-100 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+          >
+            <ChevronLeft size={20} className="shrink-0 text-slate-500 transition-transform group-hover:-translate-x-1 dark:text-slate-400" />
+            <span className="min-w-0">
+              <span className="block text-xs font-medium text-slate-500 dark:text-slate-400">Previous project</span>
+              <span className="mt-1 block truncate font-semibold">{previousProject.title}</span>
+            </span>
+          </Link>
+          <Link
+            href={`/projects/${nextProject.slug}`}
+            className="group flex min-w-0 items-center justify-end gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-right transition-colors hover:bg-slate-100 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+          >
+            <span className="min-w-0">
+              <span className="block text-xs font-medium text-slate-500 dark:text-slate-400">Next project</span>
+              <span className="mt-1 block truncate font-semibold">{nextProject.title}</span>
+            </span>
+            <ChevronRight size={20} className="shrink-0 text-slate-500 transition-transform group-hover:translate-x-1 dark:text-slate-400" />
+          </Link>
+        </nav>
       </div>
     </main>
   );
