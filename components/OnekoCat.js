@@ -27,7 +27,7 @@ export default function OnekoCat() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const touchDevice = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
-    if (reducedMotion || touchDevice) return;
+    if (reducedMotion) return;
 
     if (window.__onekoCatMounted) return;
     window.__onekoCatMounted = true;
@@ -46,6 +46,16 @@ export default function OnekoCat() {
     let idleAnimationFrame = 0;
 
     const nekoSpeed = 10;
+
+    if (touchDevice) {
+      mousePosX = nekoPosX;
+      mousePosY = nekoPosY;
+    }
+
+    const updatePointerPosition = (event) => {
+      mousePosX = event.clientX;
+      mousePosY = event.clientY;
+    };
 
     function setSprite(name, frame) {
       const sprite = spriteSets[name][frame % spriteSets[name].length];
@@ -176,10 +186,8 @@ export default function OnekoCat() {
 
       document.body.appendChild(nekoEl);
 
-      document.addEventListener("mousemove", (event) => {
-        mousePosX = event.clientX;
-        mousePosY = event.clientY;
-      });
+      document.addEventListener("pointermove", updatePointerPosition);
+      document.addEventListener("pointerdown", updatePointerPosition);
 
       if (persistPosition) {
         persistHandler = () => {
@@ -237,6 +245,8 @@ export default function OnekoCat() {
       if (persistHandler) {
         window.removeEventListener("beforeunload", persistHandler);
       }
+      document.removeEventListener("pointermove", updatePointerPosition);
+      document.removeEventListener("pointerdown", updatePointerPosition);
       if (nekoEl.isConnected) {
         nekoEl.remove();
       }
